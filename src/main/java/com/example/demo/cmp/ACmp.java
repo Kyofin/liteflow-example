@@ -27,12 +27,12 @@ public class ACmp extends NodeComponent {
 
     @Override
     public void onSuccess() throws Exception {
-        System.out.println(this.getDisplayName() + "任务完成");
+        System.out.println(this.getDisplayName()+"-"+getTag() + "任务完成");
     }
 
     @Override
     public void onError() throws Exception {
-        System.out.println(this.getDisplayName() + "任务失败");
+        System.out.println(this.getDisplayName()+"-"+getTag() + "任务失败");
     }
 
     @Override
@@ -42,6 +42,9 @@ public class ACmp extends NodeComponent {
         super.beforeProcess(nodeId, slot);
     }
 
+    /**
+     * success或者error回调后才触发
+     */
     @Override
     public <T> void afterProcess(String nodeId, Slot slot) {
         //主动让SiftingAppender结束文件.

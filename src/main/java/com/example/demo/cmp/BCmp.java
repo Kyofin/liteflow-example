@@ -17,12 +17,12 @@ import java.util.Random;
 public class BCmp extends NodeComponent {
     @Override
     public void onSuccess() throws Exception {
-        System.out.println(this.getDisplayName() + "任务完成");
+        System.out.println(this.getDisplayName()+"-"+getTag() + "任务完成");
     }
 
     @Override
     public void onError() throws Exception {
-        System.out.println(this.getDisplayName() + "任务失败");
+        System.out.println(this.getDisplayName()+"-"+getTag() + "任务失败");
     }
 
     @Override
@@ -33,11 +33,14 @@ public class BCmp extends NodeComponent {
             e.printStackTrace();
         }
         System.out.println("BCmp executed!");
+        this.sendPrivateDeliveryData("c","1");
+        this.sendPrivateDeliveryData("c","2");
+        this.sendPrivateDeliveryData("c","3");
     }
 
     @Override
     public boolean isAccess() {
-        // 业务判断是否进入该节点
-        return false;
+        // 业务判断是否进入该节点 ，如果false则不执行该节点了
+        return true;
     }
 }

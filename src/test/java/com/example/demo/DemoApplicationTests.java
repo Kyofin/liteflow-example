@@ -46,11 +46,11 @@ class DemoApplicationTests {
 		LiteFlowChainELBuilder.createChain().setChainName("初始Zookeeper服务").setChainId("chainID1").setEL(
 //				"cmpData = '{\"host\":\"node001\",\"role\":\"ZookeeperServer\"}'; " +
 						"THEN(" +
-								"a.tag(\"TAG-1\").data('{\"host\":\"node001\",\"role\":\"ZookeeperServer\"}'), " +
-								"a.tag(\"TAG-2\").data('{\"host\":\"node002\",\"role\":\"ZookeeperServer\"}') ," +
-								"a.tag(\"TAG-3\").data('{\"host\":\"node003\",\"role\":\"ZookeeperServer\"}') ," +
-								" b, " +
-								"c" +
+								"a.tag(\"TASK-a1\").data('{\"host\":\"node001\",\"role\":\"ZookeeperServer\"}'), " +
+								"a.tag(\"TASK-a2\").data('{\"host\":\"node002\",\"role\":\"ZookeeperServer\"}') ," +
+								"a.tag(\"TASK-a3\").data('{\"host\":\"node003\",\"role\":\"ZookeeperServer\"}') ," +
+								" b.tag(\"TASK-b1\"), " +
+								"WHEN(c.tag(\"TASK-c1\"),c.tag(\"TASK-c2\"),c.tag(\"TASK-c3\"))" +
 								")"
 		).build();
 

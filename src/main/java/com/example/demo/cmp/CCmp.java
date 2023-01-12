@@ -17,25 +17,19 @@ import java.util.Random;
 public class CCmp extends NodeComponent {
     @Override
     public void onSuccess() throws Exception {
-        System.out.println(this.getDisplayName() + "任务完成");
+        System.out.println(this.getDisplayName()+"-"+getTag() + "任务完成");
     }
 
     @Override
     public void onError() throws Exception {
-        System.out.println(this.getDisplayName() + "任务失败");
+        System.out.println(this.getDisplayName()+"-"+getTag() + "任务失败");
     }
 
-    @Override
-    public boolean isEnd() {
-        boolean end = super.isEnd();
-        if (end) {
-            System.out.println("整个flow都结束了。。。。");
-        }
-        return end;
-    }
+
 
     @Override
     public void process() {
+        System.out.println(getTag()+"取私有投递的参数:"+getPrivateDeliveryData());
         try {
             Thread.sleep(new Random().nextInt(5000));
         } catch (Exception e) {
